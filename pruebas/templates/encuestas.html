@@ -1,0 +1,27 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuestas</title>
+</head>
+<body>
+    <head>
+        <h1>Encuestas</h1>
+        <p>This is a page for make testings and experiments</p>
+    </head>
+    <main>
+        <p>This is the main</p>
+
+        {{ question.as_p }}
+        {{ choice.as_p }}
+
+
+    </main>
+    <footer>
+        <P>This is the <footer>footer</footer></P>
+    </footer>
+    {% endblock %}
+</body>
+</html>
