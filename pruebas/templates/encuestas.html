@@ -1,27 +1,37 @@
+{% extends 'layouts/nabvar.html' %}
+
+{% load static %}
+
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encuestas</title>
-</head>
+
+{% block css_extra %}
+<link rel="stylesheet" href="{% static 'styles/css/encuestas.css' %}">
+{% endblock %}
 <body>
     <head>
         <h1>Encuestas</h1>
-        <p>This is a page for make testings and experiments</p>
     </head>
     <main>
         <p>This is the main</p>
 
-        {{ question.as_p }}
-        {{ choice.as_p }}
+        {% for pregunta in questions %}
+            <div class="pregunta_sqlite">
+                <h3 class="preguntas">{{ pregunta }}</h3>
 
+                <ul>
+                    {% for respuesta in pregunta.answer_set.all %}
+                        <button>
+                            
+                            {{ respuesta }}
+                            
+                        </button>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
 
     </main>
-    <footer>
-        <P>This is the <footer>footer</footer></P>
-    </footer>
-    {% endblock %}
+
 </body>
 </html>
+{% endblock %}

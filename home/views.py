@@ -21,4 +21,4 @@ from django.shortcuts import render
 #     return redirect("logout")
 
 def login(request):
-    return render(request, "login.html")
+    return render(request, "registration/login.html")

@@ -1,13 +1,13 @@
 from django.shortcuts import render
-from .models import Question, Choice
+from .models import Preguntas, Answer
 # Create your views here.
 
 
 def encuestas(request):
-    question = Question.objects.all()
-    choice = Choice.objects.all()
+    questions = list(Preguntas.objects.all())
+    choices = Answer.objects.all()
     return render(request, "encuestas.html", {
-        "question": question,
-        "choice": choice
+        "questions": questions,
+        "choices": choices
 
     })
