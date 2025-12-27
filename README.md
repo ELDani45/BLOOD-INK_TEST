@@ -9,3 +9,5 @@
 # --- comando --- Nombre_app
 
 " python manage.py startapp home "
+
+# esto es solo por hacer un commit
