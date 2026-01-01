@@ -15,7 +15,6 @@ class CustomManager(models.Manager):
 
 
 class Question(models.Model):
-    """Model representing a question."""
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField("date published")
 
@@ -76,18 +75,18 @@ class Author(models.Model):
 
 
 class Book(models.Model):
-    """Model representing a book with multiple authors."""
     title = models.CharField('Titulo del Libro', max_length=100, unique=True)
     codigo_unique = models.CharField(
         'Codigo Único', max_length=10, unique=True)
-    author: models.ManyToManyField = models.ManyToManyField(Author)
+    author = models.ManyToManyField(Author)
 
     class Meta:
         verbose_name = 'Libro'
         verbose_name_plural = 'Libros'
 
     def __str__(self):
-        nombres_autores = ", ".join([a.name for a in self.author.all()])
+        nombres_autores = ", ".join(
+            [a.name for a in self.author.all()])
         return str(f"{self.title} / {nombres_autores or 'Sin autor'}")
 
     objects = CustomManager()

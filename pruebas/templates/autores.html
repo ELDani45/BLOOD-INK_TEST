@@ -7,7 +7,12 @@
 <ul>
     {% for libro in Books %}
 
-    <li>{{ libro.title }} <strong>Autor:</strong>{{ libro.author }}</li>
+    <li>{{ libro.title }} <strong>Autor:</strong> 
+        {% for autor in libro.author.all %}
+            {{ autor.name }}{% if not forloop.last %}, {% endif %}
+        {% empty %}
+            Sin autor
+        {% endfor %}</li>
 
     {% endfor %}
 </ul>
