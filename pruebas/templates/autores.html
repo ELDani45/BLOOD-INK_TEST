@@ -1,0 +1,15 @@
+{% extends 'layouts/nabvar.html' %}
+
+{% block content %}
+
+<h1>Autores</h1>
+
+<ul>
+    {% for libro in Books %}
+
+    <li>{{ libro.title }} <strong>Autor:</strong>{{ libro.author }}</li>
+
+    {% endfor %}
+</ul>
+
+{% endblock %}
