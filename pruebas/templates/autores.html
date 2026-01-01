@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>Autores</h1>
+<h2>Libros</h2>
 
 <ul>
     {% for libro in Books %}
@@ -16,5 +16,23 @@
 
     {% endfor %}
 </ul>
+
+<h2>Autores</h2>
+
+<ul>
+    {% for autor in Authors %}
+
+    <li>{{ autor.name }} {{ autor.last_name }}</li>
+
+    {% endfor %}
+</ul>
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
 
 {% endblock %}
