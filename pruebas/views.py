@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Preguntas, Answer, Book, Author
 from .forms import Createauthor
-from django.http import HttpResponse
+# from django.http import HttpResponse
 from django.contrib import messages
 
 # Create your views here.
