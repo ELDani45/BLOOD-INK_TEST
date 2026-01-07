@@ -87,7 +87,7 @@ class Book(models.Model):
 
     def __str__(self):
         nombres_autores = ", ".join(
-            [a.name for a in self.author.all()])
+            [a.name for a in self.author.all()])  # pylint: disable=no-member
         return str(f"{self.title} / {nombres_autores or 'Sin autor'}")
 
     objects = CustomManager()

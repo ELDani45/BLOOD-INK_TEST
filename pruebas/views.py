@@ -41,3 +41,11 @@ def create_authors(request):
             form = Createauthor(data=request.POST)
             messages.error(request, "El usuario no es valido")
             return render(request, "create_authors.html", {"author_form": form})
+
+
+def author_blog(request, id) -> object:
+    object1 = Author.objects.get(id=id)
+    author = Author(isinstance=object1)
+    return render(request, "author_blog.html", {
+        'author_info': author
+    })

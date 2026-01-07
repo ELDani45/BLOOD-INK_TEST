@@ -1,38 +1,35 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Navbar</title>
-    {% block css_extra %}
-    {% endblock %}
-</head>
-<body>
+    {% block css_extra %} {% endblock %}
+  </head>
+  <body>
     <head>
-        <ul>
-            <li>
-                <a href="{% url 'encuesta' %}">Encuestas</a>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <a href="{% url 'login' %}">Inicio</a>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <a href="{% url 'autores' %}">Autores</a>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <a href="{% url 'make_authors' %}">Crear autor</a>
-            </li>
-        </ul>
+      <ul>
+        <li>
+          <a href="{% url 'pruebas:encuesta' %}">Encuestas</a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a href="{% url 'login:login' %}">Inicio</a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a href="{% url 'pruebas:autores' %}">Autores</a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a href="{% url 'pruebas:make_authors' %}">Crear autor</a>
+        </li>
+      </ul>
     </head>
-    
-</body>
+  </body>
 </html>
-{% block content %}
-{% endblock %}
+{% block content %} {% endblock %}

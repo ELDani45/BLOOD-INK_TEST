@@ -1,38 +1,37 @@
-{% extends 'layouts/nabvar.html' %}
-
-{% block content %}
+{% extends 'layouts/nabvar.html' %} {% block content %}
 
 <h2>Libros</h2>
 
 <ul>
-    {% for libro in Books %}
+  {% for libro in Books %}
 
-    <li>{{ libro.title }} <strong>Autor:</strong> 
-        {% for autor in libro.author.all %}
-            {{ autor.name }}{% if not forloop.last %}, {% endif %}
-        {% empty %}
-            Sin autor
-        {% endfor %}</li>
-
+  <li>
+    {{ libro.title }} <strong>Autor:</strong>
+    <!---->
+    {% for autor in libro.author.all %}
+    <!---->
+    {{ autor.name }}
+    <!---->
     {% endfor %}
+  </li>
+
+  {% endfor %}
 </ul>
 
 <h2>Autores</h2>
 
 <ul>
-    {% for autor in Authors %}
+  {% for autor in Authors %}
 
-    <li>{{ autor.name }} {{ autor.last_name }}</li>
+  <li>
+    <!--  NOTA: si la url pide un argunmento como id debes colocarla al lado de la URL    -->
+    <a href="{% url 'pruebas:blog' autor.id %}">
+      {{ autor.name }} {{ autor.last_name }}
+    </a>
+  </li>
 
-    {% endfor %}
+  {% endfor %}
 </ul>
-{% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}">
-            {{ message }}
-        </div>
-    {% endfor %}
-{% endif %}
-
-
-{% endblock %}
+{% if messages %} {% for message in messages %}
+<div class="alert alert-{{ message.tags }}">{{ message }}</div>
+{% endfor %} {% endif %} {% endblock %}
