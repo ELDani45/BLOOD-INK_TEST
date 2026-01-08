@@ -45,7 +45,6 @@ def create_authors(request):
 
 def author_blog(request, id) -> object:
     object1 = Author.objects.get(id=id)
-    author = Author(isinstance=object1)
     return render(request, "author_blog.html", {
-        'author_info': author
+        'author_info': object1
     })
