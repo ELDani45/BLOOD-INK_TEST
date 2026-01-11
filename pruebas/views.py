@@ -35,7 +35,7 @@ def create_authors(request):
             form.save()
             messages.success(
                 request, "EL usuario ha sido creado correctamente")
-            return redirect("autores")
+            return redirect("pruebas:autores")
 
         else:
             form = Createauthor(data=request.POST)
@@ -48,3 +48,22 @@ def author_blog(request, id) -> object:
     return render(request, "author_blog.html", {
         'author_info': object1
     })
+
+
+def update(request, id=None):
+    autor = Author.objects.get(id=id)
+    if request.method == "GET":
+        author_form = Createauthor(instance=autor)
+
+        return render(request, "update_author.html", {
+            "author": autor, "author_form": author_form
+        })
+    if request.method == "POST":
+        author_form = Createauthor(request.POST, instance=autor)
+        if author_form.is_valid():
+            author_form.save()
+            return redirect("pruebas:autores")
+        else:
+            author_form = Createauthor(request.POST, instance=autor)
+            return render(request, "update_author.html", {
+                "author": autor, "author_form": author_form})

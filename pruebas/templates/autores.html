@@ -29,7 +29,13 @@
       {{ autor.name }} {{ autor.last_name }}
     </a>
   </li>
+  <br />
 
+  <button>
+    <a href="{% url 'pruebas:update' autor.id %}">Editar</a>
+  </button>
+  <br />
+  <br />
   {% endfor %}
 </ul>
 {% if messages %} {% for message in messages %}
